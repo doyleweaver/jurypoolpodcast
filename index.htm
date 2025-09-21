@@ -1,24 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jury Pool Podcast Resources</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; text-align: center; }
-        .container { max-width: 800px; margin: auto; }
-        a { display: block; margin: 10px 0; color: #007BFF; text-decoration: none; }
-        @media (max-width: 600px) { body { padding: 10px; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The Jury Pool Podcast - Attorney interviews.">
+  <title>The Jury Pool Podcast</title>
+  <style>
+    body { margin: 0; padding: 0; background: #4682B4; font-family: Arial, sans-serif; min-height: 100vh; position: relative; }
+    .header { background: #fff; width: 100%; height: 30vh; position: relative; }
+    .header .title-img { position: absolute; top: 10px; left: 10px; max-width: 200px; }
+    .header .menu-img { position: absolute; top: 10px; right: 10px; max-width: 292.5px; cursor: pointer; }
+    .header .center-img { position: absolute; bottom: 0; left: 75%; transform: translateX(-50%); max-width: 480px; }
+    .header .intro-text { position: absolute; top: 50%; left: 25%; transform: translateY(-50%); font-size: 3em; font-weight: 700; font-family: 'Roboto', Arial, sans-serif; color: #000000; text-align: left; line-height: 1.4; max-width: 300px; text-decoration: none; }
+    .header .intro-text:hover { text-decoration: none; }
+    .podcast-section { background: #4682B4; width: 100%; padding: 10px; box-sizing: border-box; text-align: center; }
+    .podcast-section h1 { margin: 0 0 10px; font-size: 2em; color: #fff; }
+    .content-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .video-player { width: 70%; max-width: 800px; aspect-ratio: 16/9; }
+    .video-player video { width: 100%; height: 100%; border-radius: 8px; }
+    .ad-box { width: 25%; max-width: 300px; background: #000000; border-radius: 8px; padding: 10px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    .ad-box img { width: 280px; height: auto; border-radius: 8px; object-fit: cover; display: block; }
+    .ad-box p { color: #fff; margin: 5px 0 0 0; font-size: 1em; font-family: Arial, sans-serif; }
+    .scroll-ad-box { display: none; }
+    .spacer-section { background: #4682B4; width: 100%; height: 100px; }
+    .nav { position: fixed; top: 0; right: -50%; width: 50%; height: 100%; background: #4682B4; opacity: 0.5; transition: right 0.3s ease, opacity 0.3s ease; z-index: 1000; }
+    .nav.active { right: 0; opacity: 0.5; }
+    .nav ul { list-style: none; margin: 0; padding: 20px; display: flex; flex-direction: column; }
+    .nav li { margin: 10px 0; }
+    .nav a { color: #ffd700; text-decoration: none; font-size: 3.6em; font-weight: 700; font-family: 'Roboto', Arial, sans-serif; }
+    .nav a:hover { text-decoration: underline; }
+    .footer { background: #00008B; color: #fff; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+    .footer a { color: #ffd700; margin: 0 10px; text-decoration: none; }
+    @media (max-width: 768px) {
+      .header { height: 40vh; }
+      .header .title-img { max-width: 30vw; top: 5px; left: 5px; }
+      .header .menu-img { max-width: 52vw; top: 5px; right: 5px; }
+      .header .center-img { max-width: 75vw; }
+      .header .intro-text { font-size: 1.5em; max-width: 40%; left: 10%; }
+      .podcast-section { padding: 10px; }
+      .podcast-section h1 { font-size: 1.5em; }
+      .content-container { flex-direction: column; align-items: center; }
+      .video-player { width: 90%; }
+      .ad-box { display: none; }
+      .scroll-ad-box { display: block; width: 90%; max-width: 250px; background: #fff; border-radius: 8px; padding: 10px; box-sizing: border-box; overflow-x: hidden; text-align: center; cursor: pointer; }
+      .scroll-ad-box img { width: 230px; height: auto; border-radius: 8px; object-fit: cover; display: block; margin: 0 auto; }
+      .scroll-ad-box p { margin: 0; font-size: 1.2em; color: #4682B4; font-weight: 600; font-family: 'Roboto', Arial, sans-serif; white-space: nowrap; display: inline-block; animation: scrollText 20s linear infinite; }
+      @keyframes scrollText { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+      .spacer-section { height: 30px; }
+      .nav a { font-size: 2em; }
+      .footer { padding: 10px; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Jury Pool Podcast Resources</h1>
-        <p>Check out our recommended tools to level up your skills!</p>
-        <a href="https://masterclass.com/?aff=yourid&utm_source=youtube" target="_blank">MasterClass</a>
-        <a href="https://optery.com/affiliate123?utm_source=spotify" target="_blank">Optery</a>
-        <!-- Add other 9 affiliates: Skillshare, Coursera, etc., with UTM parameters -->
-        <p><small>Disclosure: Affiliate links—Jury Pool Podcast may earn a commission.</small></p>
+  <header class="header">
+    <img class="title-img" src="https://jurypoolpodcast.com/images/logo.png" alt="The Jury Pool Podcast Title">
+    <img class="menu-img" src="https://jurypoolpodcast.com/images/menu.jpg" alt="Menu Icon" onclick="toggleMenu()">
+    <img class="center-img" src="https://jurypoolpodcast.com/images/drw.png" alt="Center Image">
+    <div class="intro-text">Here You<br>Can Watch The Podcast!</div>
+  </header>
+  <section class="podcast-section">
+    <h1>Podcast</h1>
+    <div class="content-container">
+      <div class="video-player" id="video-player">
+        <video controls>
+          <source src="https://jurypoolpodcast.com/videos/podcast_intro.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="ad-box">
+        <img src="https://jurypoolpodcast.com/images/ad.jpg" alt="Support">
+        <p>weaverlawoffices@gmail.com</p>
+      </div>
+      <div class="scroll-ad-box">
+        <img src="https://jurypoolpodcast.com/images/ad.jpg" alt="Support">
+      </div>
     </div>
+  </section>
+  <section class="spacer-section"></section>
+  <nav class="nav">
+    <ul>
+      <li><a href="https://jurypoolpodcast.com/">Home</a></li>
+      <li><a href="pages/podcasts.html">Podcasts</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <footer class="footer">
+    <p>&copy; The Jury Pool Podcast 2025 | <a href="pages/tos.html">Terms & Conditions</a> | <a href="pages/pp.html">Privacy Policy</a></p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav').classList.toggle('active');
+    }
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('.nav');
+      const menuImg = document.querySelector('.menu-img');
+      const isNavActive = nav.classList.contains('active');
+      const isClickInsideNav = nav.contains(event.target);
+      const isClickOnMenuImg = menuImg.contains(event.target);
+      if (isNavActive && !isClickInsideNav && !isClickOnMenuImg) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
