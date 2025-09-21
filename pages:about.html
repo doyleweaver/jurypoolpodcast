@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The Jury Pool Podcast - About our true crime podcast and attorney interviews.">
+  <title>About - The Jury Pool Podcast</title>
+  <style>
+    body { margin: 0; padding: 0; background: #4682B4; font-family: Arial, sans-serif; min-height: 100vh; position: relative; }
+    .header { background: #fff; width: 100%; height: 30vh; position: relative; }
+    .header .title-img { position: absolute; top: 10px; left: 10px; max-width: 200px; }
+    .header .menu-img { position: absolute; top: 10px; right: 10px; max-width: 292.5px; cursor: pointer; }
+    .header .center-img { position: absolute; bottom: 0; left: 75%; transform: translateX(-50%); max-width: 480px; }
+    .header .intro-text { position: absolute; top: 50%; left: 25%; transform: translateY(-50%); font-size: 3em; font-weight: 700; font-family: 'Roboto', Arial, sans-serif; color: #000000; text-align: left; line-height: 1.4; max-width: 300px; text-decoration: none; }
+    .header .intro-text:hover { text-decoration: none; }
+    .content-section { background: #4682B4; width: 100%; padding: 20px; box-sizing: border-box; text-align: left; color: #fff; }
+    .content-section h1 { margin: 0 0 20px; font-size: 2.5em; text-align: center; }
+    .content-section p { font-size: 1.1em; line-height: 1.6; max-width: 800px; margin: 0 auto 20px; }
+    .content-section a { color: #ffd700; text-decoration: none; }
+    .content-section a:hover { text-decoration: underline; }
+    .spacer-section { background: #4682B4; width: 100%; height: 100px; }
+    .nav { position: fixed; top: 0; right: -50%; width: 50%; height: 100%; background: #4682B4; opacity: 0.5; transition: right 0.3s ease, opacity 0.3s ease; z-index: 1000; }
+    .nav.active { right: 0; opacity: 0.5; }
+    .nav ul { list-style: none; margin: 0; padding: 20px; display: flex; flex-direction: column; }
+    .nav li { margin: 10px 0; }
+    .nav a { color: #ffd700; text-decoration: none; font-size: 3.6em; font-weight: 700; font-family: 'Roboto', Arial, sans-serif; }
+    .nav a:hover { text-decoration: underline; }
+    .footer { background: #00008B; color: #fff; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+    .footer a { color: #ffd700; margin: 0 10px; text-decoration: none; }
+    @media (max-width: 768px) {
+      .header { height: 40vh; }
+      .header .title-img { max-width: 30vw; top: 5px; left: 5px; }
+      .header .menu-img { max-width: 52vw; top: 5px; right: 5px; }
+      .header .center-img { max-width: 75vw; }
+      .header .intro-text { font-size: 1.5em; max-width: 40%; left: 10%; }
+      .content-section { padding: 10px; }
+      .content-section h1 { font-size: 1.8em; }
+      .content-section p { font-size: 1em; }
+      .spacer-section { height: 30px; }
+      .nav a { font-size: 2em; }
+      .footer { padding: 10px; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <img class="title-img" src="https://jurypoolpodcast.com/images/The_Jury_Pool_Podcast.png" alt="The Jury Pool Podcast Title">
+    <img class="menu-img" src="https://jurypoolpodcast.com/images/menu.jpg" alt="Menu Icon" onclick="toggleMenu()">
+    <img class="center-img" src="https://jurypoolpodcast.com/images/drw.png" alt="Center Image">
+    <div class="intro-text"> Here You<br>Can Watch The Podcast! </div>
+  </header>
+  <section class="content-section">
+    <h1>About The Jury Pool Podcast</h1>
+    <p>Welcome to The Jury Pool Podcast, where the law comes to life through candid conversations with attorneys from across the nation. Hosted by [Your Name], a seasoned Texas-licensed attorney with over 30 years of experience in solo practice, this podcast dives deep into the real-world stories, challenges, and triumphs of legal professionals. With a diverse background in civil, criminal, and litigation law, [Your Name] brings a wealth of insight and a passion for uncovering the human side of the legal profession.</p>
+    <p>Each episode features in-depth interviews with attorneys who share their unique journeys, from navigating complex cases to building rewarding careers. Whether you're a legal professional, a law student, or simply curious about the justice system, The Jury Pool Podcast offers engaging, thought-provoking discussions that highlight the expertise and experiences shaping the legal landscape.</p>
+    <p>Join us as we explore the stories behind the law, one conversation at a time. Subscribe now and become part of The Jury Pool!</p>
+  </section>
+  <section class="spacer-section"></section>
+  <nav class="nav">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="podcasts.html">Podcasts</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <footer class="footer">
+    <p>&copy; The Jury Pool Podcast 2025 | <a href="tos.html">Terms & Conditions</a> | <a href="pp.html">Privacy Policy</a> | Sponsors</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav').classList.toggle('active');
+    }
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('.nav');
+      const menuImg = document.querySelector('.menu-img');
+      const isNavActive = nav.classList.contains('active');
+      const isClickInsideNav = nav.contains(event.target);
+      const isClickOnMenuImg = menuImg.contains(event.target);
+      if (isNavActive && !isClickInsideNav && !isClickOnMenuImg) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
